@@ -181,8 +181,21 @@ Template("treino.csv",variable=>
         newImage("altofalante.png")
             .size( 90 , 90 )
             .print()
-       ,
+                   ,
        
+             newButton("Listen again")
+                 .css("font-size","1.2em")
+                 .callback( 
+                  getAudio("contexto.treino", variable.ContextoTreino)
+                   .stop()
+                    .play()
+                    .log()
+                    
+               )
+               .print()
+             
+            ,
+    
            newButton("Next")
             .css("font-size","1.2em")
             .print()
@@ -191,22 +204,44 @@ Template("treino.csv",variable=>
             .wait()
             .remove()
     
-      ,
+             ,
+             newCanvas( 1400 , 700 )
+            .add(   700 , 0 , getButton("Listen again") )
+            .add( 800, 0 , getButton("Next") )
+            .print()
+            ,
+             
              getAudio("contexto.treino",variable.ContextoTreino)
              .wait("first")
-             
              ,
-          getImage("altofalante.png")
+             getImage("altofalante.png")
             .remove()
             ,
+             getButton("Listen again")
+            .remove()
+           ,
             newAudio("frase.treino", variable.SentenceTreino)
              .play()
-                     ,
+            ,
+        
         newImage("altofalante2.png")
             .size( 90 , 90 )
             .print()
             
         ,
+        newButton("Listen Again")
+                .css("font-size","1.2em")
+                 .callback( 
+                  getAudio("frase.treino", variable.SentenceTreino)
+                   .stop()
+                    .play()
+                    .log()
+                    
+               )
+               .print()
+               
+            ,
+        
         newButton("Next")
             .css("font-size","1.2em")
             .print()
@@ -217,13 +252,18 @@ Template("treino.csv",variable=>
             
         
     ,
+    
              getAudio("frase.treino",variable.SentenceTreino)
              .wait("first")
              ,
-             
+            
             getImage("altofalante2.png")
             .remove()
             ,
+             getButton("Listen Again")
+            .remove()
+             ,
+             
         newImage("escala.png")
         .print()
         .center()
@@ -391,3 +431,5 @@ newTrial("final",
 //Ajeita a barra de pogresso para que ela fique completa
 .setOption("countsForProgressBar",false);
 //Fim do Script
+
+   
