@@ -7,7 +7,7 @@ defaultText
         .css("font-size","1.2em")
         .print()
         ,
-      newText("<p>You have been invited to take part in a research study about how people produce sentences. The study is being conducted by LAPEX-Laboratório de Psicolinguística Experimental at UFRJ.</p><p>You are being asked to complete this experiment because <b>you are an adult (18 years or older) and you are a native speaker of Brazilian Portuguese (you learned<br> Brazilian Portuguese from birth and are a fluent speaker of Brazilian Portuguese), but you are fluent in English too</b>.</p><p>Any information that you provide will be anonymized and kept confidential. You may withdraw from this study at any time without penalty.<br> However, make sure you have a reliable internet connection and are able to complete the study in one sitting.</p><p>If you have questions about this research, or if you would like to receive a report of this research when it is completed, please contact the researcher<br> Lorrane Medeiros at lorranesnm@hotmail.com.</p><p><b>This study takes approximately 15 minutes.</p><p>By clicking 'I agree', you agree that you are at least 18 years of age, that you are a native speaker of Brazilian Portuguese, and that you understand these instructions and conditions of participation.</p>")
+      newText("<p>You have been invited to take part in a research study about how people produce sentences. The study is being conducted by LAPEX-Laboratório de Psicolinguística Experimental at UFRJ.</p><p>You are being asked to complete this experiment because <b>you are an adult (18 years or older) and you are a native speaker of Brazilian Portuguese (you learned<br> Brazilian Portuguese from birth and are a fluent speaker of Brazilian Portuguese), but you are fluent in English too</b>.</p><p>Any information that you provide will be anonymized and kept confidential. You may withdraw from this study at any time without penalty.<br> However, make sure you have a reliable internet connection and are able to complete the study in one sitting.</p><p>If you have questions about this research, or if you would like to receive a report of this research when it is completed, please contact the researcher<br> Lorrane Medeiros at lorranesnm@hotmail.com.</p><p><b>This study takes approximately 15 minutes.</p><p>By clicking 'I agree', you agree that you are at least 18 years of age, that you are a native speaker of Brazilian Portuguese, that you are fluent in English and that you understand these instructions and conditions of participation.</p>")
     .print()
         ,
     newButton("I Agree")
@@ -182,7 +182,8 @@ Template("treino.csv",variable=>
             .size( 90 , 90 )
             .print()
        ,
-        newButton("Next")
+       
+           newButton("Next")
             .css("font-size","1.2em")
             .print()
             .center()
