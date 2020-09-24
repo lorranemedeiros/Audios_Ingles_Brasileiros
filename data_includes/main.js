@@ -181,6 +181,7 @@ Template("treino.csv",variable=>
         newImage("altofalante.png")
             .size( 90 , 90 )
             .print()
+            .center()
                    ,
        
              newButton("Listen again")
@@ -198,18 +199,13 @@ Template("treino.csv",variable=>
     
            newButton("Next")
             .css("font-size","1.2em")
+            .before(getButton("Listen again"))
             .print()
-            .center()
             .log()
             .wait()
             .remove()
-    
-             ,
-             newCanvas( 1400 , 700 )
-            .add(   700 , 0 , getButton("Listen again") )
-            .add( 800, 0 , getButton("Next") )
-            .print()
-            ,
+            
+                 ,
              
              getAudio("contexto.treino",variable.ContextoTreino)
              .wait("first")
@@ -227,6 +223,7 @@ Template("treino.csv",variable=>
         newImage("altofalante2.png")
             .size( 90 , 90 )
             .print()
+            .center()
             
         ,
         newButton("Listen Again")
@@ -244,8 +241,8 @@ Template("treino.csv",variable=>
         
         newButton("Next")
             .css("font-size","1.2em")
+            .before(getButton("Listen Again"))
             .print()
-            .center()
             .log()
             .wait()
             .remove()
@@ -335,9 +332,23 @@ Template("tabela.csv", variable=>
         newImage("altofalante.png")
             .size( 90 , 90 )
             .print()
+            .center()
        ,
+       
+             newButton("Listen again")
+                 .css("font-size","1.2em")
+                 .callback( 
+                  getAudio("contexto.exp", variable.AudioContext)
+                   .stop()
+                    .play()
+                    .log()
+                    
+                    )
+                    .print()
+                    ,
         newButton("Next")
             .css("font-size","1.2em")
+            .before(getButton("Listen again"))
             .print()
             .center()
             .log()
@@ -351,17 +362,33 @@ Template("tabela.csv", variable=>
              getImage("altofalante.png")
             .remove()
             ,
+            getButton("Listen again")
+            .remove()
+             ,
         newAudio("frase.experimento", variable.AudioSentence)
              .play()
         ,
         newImage("altofalante2.png")
             .size( 90 , 90 )
             .print()
+            .center()
             
            
         ,
+        
+             newButton("Listen Again")
+                 .css("font-size","1.2em")
+                 .callback( 
+                  getAudio("frase.experimento", variable.AudioSentence)
+                   .stop()
+                    .play()
+                    .log()
+                    )
+                    .print()
+                    ,
         newButton("Next")
             .css("font-size","1.2em")
+            .before(getButton("Listen Again"))
             .print()
             .center()
             .log()
@@ -373,6 +400,10 @@ Template("tabela.csv", variable=>
              .wait("first")
              ,
             getImage("altofalante2.png")
+            .remove()
+            .center()
+             ,
+             getButton("Listen Again")
             .remove()
              ,
         newImage("escala.png")
