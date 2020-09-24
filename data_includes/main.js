@@ -7,7 +7,7 @@ defaultText
         .css("font-size","1.2em")
         .print()
         ,
-      newText("<p>You have been invited to take part in a research study about how people produce sentences. The study is being conducted by LAPEX-Laboratório<br> de Psicolinguística Experimental at UFRJ.</p><p>You are being asked to complete this experiment because <b>you are an adult (18 years or older), you are a native speaker of Brazilian Portuguese<br> and you are fluent in English (you learned Brazilian Portuguese from birth and are a fluent speaker of Brazilian Portuguese, but you are fluent in English too)</b>.</p><p>Any information that you provide will be anonymized and kept confidential. You may withdraw from this study at any time without penalty.<br> However, make sure you have a reliable internet connection and are able to complete the study in one sitting.</p><p>If you have questions about this research, or if you would like to receive a report of this research when it is completed, please contact the researcher<br> Lorrane Medeiros at lorranesnm@hotmail.com.</p><p><b>This study takes approximately 15 minutes.</p><p>By clicking 'I agree', you agree that you are at least 18 years of age, that you are a native speaker of Brazilian Portuguese, that you are fluent<br> in English and that you understand these instructions and conditions of participation.</p>")
+      newText("<p>You have been invited to take part in a research study about how people produce sentences. The study is being conducted by LAPEX-Laboratório<br> de Psicolinguística Experimental at UFRJ.</p><p>You are being asked to complete this experiment because <b>you are an adult (18 years or older), you are a native speaker of Brazilian Portuguese<br> and you are fluent in English too (you learned Brazilian Portuguese from birth and are a fluent speaker of Brazilian Portuguese, and you are<br> a fluent speaker of English because you've learned English during your life)</b>.</p><p>Any information that you provide will be anonymized and kept confidential. You may withdraw from this study at any time without penalty.<br> However, make sure you have a reliable internet connection and are able to complete the study in one sitting.</p><p>If you have questions about this research, or if you would like to receive a report of this research when it is completed, please contact the researcher<br> Lorrane Medeiros at lorranesnm@hotmail.com.</p><p><b>This study takes approximately 15 minutes.</p><p>By clicking 'I agree', you agree that you are at least 18 years of age, that you are a native speaker of Brazilian Portuguese, that you are fluent<br> in English and that you understand these instructions and conditions of participation.</p>")
     .print()
         ,
     newButton("I Agree")
@@ -51,27 +51,44 @@ newTrial("inicial",
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p>How long do you speak English?</p>")
+    newText("<p>Have you ever taken an English proficiency exam? When? Which one? (TOEFL, Cambridge, Michigan etc)</p>")
     ,
 //Cria uma caixa de texto nomedada "Nome" para receber o nome do participante
-    newTextInput("EstudoIngles")
+    newTextInput("EnglishExam")
         .css("font-size","1.2em")
         .print()
     ,
-    newText("<p>Are you a fluent speaker of English?</p>")
+    newText("<p>What was your proficiency level on the exam? (Basic, Intermediate, Advanced)</p>")
+    ,
+//Cria uma caixa de texto nomedada "Nome" para receber o nome do participante
+    newTextInput("ExamLevel")
+        .css("font-size","1.2em")
+        .print()
+    ,
+    newText("<p> What is your current level of proficiency? (Basic, Intermediate, Advanced)</p>")
+    ,
+//Cria uma caixa de texto nomedada "Nome" para receber o nome do participante
+    newTextInput("EnglishLevel")
+        .css("font-size","1.2em")
+        .print()
+    ,
+     
+    newText("<p>Are you fluent in English?</p>")
     ,
 //Cria uma caixa de texto nomedada "Nome" para receber o nome do participante
     newTextInput("fluent")
         .css("font-size","1.2em")
         .print()
-    ,
-    newText("<p>Do you currently live in the USA? How long?</p>")
+        ,
+         
+    newText("<p>Have you ever lived or live in the USA? How long?</p>")
     ,
 //Cria uma caixa de texto nomedada "Nome" para receber o nome do participante
     newTextInput("liveUSA")
         .css("font-size","1.2em")
         .print()
-    ,
+        ,
+         
     newText("<p>Now, select your EDUCATIONAL LEVEL in the box below and press “Start”</p>")
         .css("font-size","1.2em")
         .print()
@@ -103,9 +120,17 @@ newTrial("inicial",
         .global()
         .set( getTextInput("Idade") )
         ,
-    newVar("EstudoIngles")
+    newVar("EnglishExam")
         .global()
-        .set( getTextInput("EstudoIngles") )
+        .set( getTextInput("EnglishExam") )
+        ,
+        newVar("ExamLevel")
+        .global()
+        .set( getTextInput("ExamLevel") )
+        ,
+        newVar("EnglishLevel")
+        .global()
+        .set( getTextInput("EnglishLevel") )
         ,
         newVar("fluent")
         .global()
@@ -120,7 +145,9 @@ newTrial("inicial",
 .log( "ID" , getVar("ID") )
 .log( "EMAIL" , getVar("EMAIL") )
 .log( "AGE" , getVar("AGE") )
-.log( "EstudoIngles" , getVar("EstudoIngles") )
+.log( "EnglishExam" , getVar("EnglishExam") )
+.log( "ExamLevel" , getVar("ExamLevel") )
+.log( "EnglishLevel" , getVar("EnglishLevel") )
 .log( "fluent" , getVar("fluent") )
 .log( "liveUSA" , getVar("liveUSA") )
 
@@ -139,10 +166,10 @@ newTrial("instr.treino",
          .center()
          .bold()
     ,
-    newText("<p>Step 1: You’ll listen to a sentence. This is the context sentence. As soon as the audio ends, click on the button NEXT.</p>")
+    newText("<p>Step 1: You’ll listen to a sentence. This is the context sentence. As soon as the audio ends, click on the button NEXT.<br> If you need it, you can listen to the audio again by pressing the button LISTEN AGAIN.</p>")
          .left()
     ,
-    newText("<p>Step 2: You’ll listen to a second sentence. This sentence is related to the context sentence (previous audio). After listening to this sentence,<br> click on the button NEXT to judge this sentence according to a 5-point scale.</p>")
+    newText("<p>Step 2: You’ll listen to a second sentence. This sentence is related to the context sentence (previous audio). After listening to this sentence,<br> click on the button NEXT to judge this sentence according to a 5-point scale.<br>If you need it, you can listen to the audio again by pressing the button LISTEN AGAIN.</p>")
     .left()
          ,
          newText("PAY ATTENTION!! You have to judge the second audio, not the first one.</p>")
@@ -191,10 +218,11 @@ Template("treino.csv",variable=>
                    .stop()
                     .play()
                     .log()
+                    .wait()
                     
                )
                .print()
-             
+               
             ,
     
            newButton("Next")
@@ -233,11 +261,11 @@ Template("treino.csv",variable=>
                    .stop()
                     .play()
                     .log()
+                    .wait()
                     
                )
                .print()
-               
-            ,
+                   ,
         
         newButton("Next")
             .css("font-size","1.2em")
@@ -258,7 +286,7 @@ Template("treino.csv",variable=>
             .remove()
             ,
              getButton("Listen Again")
-            .remove()
+             .remove()
              ,
              
         newImage("escala.png")
@@ -342,6 +370,7 @@ Template("tabela.csv", variable=>
                    .stop()
                     .play()
                     .log()
+                    .wait()
                     
                     )
                     .print()
@@ -383,6 +412,7 @@ Template("tabela.csv", variable=>
                    .stop()
                     .play()
                     .log()
+                    .wait()
                     )
                     .print()
                     ,
