@@ -1,5 +1,6 @@
 PennController.ResetPrefix(null);
 PennController.DebugOff();
+AddHost("https://raw.githubusercontent.com/lorranemedeiros/Audios_Ingles_Brasileiros/master/chunk_includes/");
 //Sequência de telas do experimento
 Sequence ("consent","inicial", "instr.treino", ("treino"), "instr.exp" , randomize("experimento"), SendResults(), "final");
 newTrial("consent",
